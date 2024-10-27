@@ -77,25 +77,20 @@ Disassembly of section .text:
  8000148:	08001c34 	.word	0x08001c34
 
 0800014c <getKeyInput>:
-//		}
-//	}
-//}
+		}
+	}
+}
 
-int pressType = NO_PRESS;
-void getKeyInput(){
  800014c:	b580      	push	{r7, lr}
  800014e:	af00      	add	r7, sp, #0
-	KeyReg0 = KeyReg1;
  8000150:	4b33      	ldr	r3, [pc, #204]	; (8000220 <getKeyInput+0xd4>)
  8000152:	681b      	ldr	r3, [r3, #0]
  8000154:	4a33      	ldr	r2, [pc, #204]	; (8000224 <getKeyInput+0xd8>)
  8000156:	6013      	str	r3, [r2, #0]
-	KeyReg1 = KeyReg2;
  8000158:	4b33      	ldr	r3, [pc, #204]	; (8000228 <getKeyInput+0xdc>)
  800015a:	681b      	ldr	r3, [r3, #0]
  800015c:	4a30      	ldr	r2, [pc, #192]	; (8000220 <getKeyInput+0xd4>)
  800015e:	6013      	str	r3, [r2, #0]
-	KeyReg2 = HAL_GPIO_ReadPin(button1_GPIO_Port, button1_Pin);
  8000160:	f44f 5100 	mov.w	r1, #8192	; 0x2000
  8000164:	4831      	ldr	r0, [pc, #196]	; (800022c <getKeyInput+0xe0>)
  8000166:	f000 fd39 	bl	8000bdc <HAL_GPIO_ReadPin>
@@ -103,7 +98,6 @@ void getKeyInput(){
  800016c:	461a      	mov	r2, r3
  800016e:	4b2e      	ldr	r3, [pc, #184]	; (8000228 <getKeyInput+0xdc>)
  8000170:	601a      	str	r2, [r3, #0]
-	if((KeyReg0 == KeyReg1) && (KeyReg1 == KeyReg2)){
  8000172:	4b2c      	ldr	r3, [pc, #176]	; (8000224 <getKeyInput+0xd8>)
  8000174:	681a      	ldr	r2, [r3, #0]
  8000176:	4b2a      	ldr	r3, [pc, #168]	; (8000220 <getKeyInput+0xd4>)
@@ -116,7 +110,6 @@ void getKeyInput(){
  8000184:	681b      	ldr	r3, [r3, #0]
  8000186:	429a      	cmp	r2, r3
  8000188:	d140      	bne.n	800020c <getKeyInput+0xc0>
-		switch(pressType){
  800018a:	4b29      	ldr	r3, [pc, #164]	; (8000230 <getKeyInput+0xe4>)
  800018c:	681b      	ldr	r3, [r3, #0]
  800018e:	2b02      	cmp	r3, #2
@@ -127,97 +120,68 @@ void getKeyInput(){
  8000198:	d002      	beq.n	80001a0 <getKeyInput+0x54>
  800019a:	2b01      	cmp	r3, #1
  800019c:	d019      	beq.n	80001d2 <getKeyInput+0x86>
-				button1_flag = 1;
-				pressType = NO_PRESS;
-			}
-			break;
-		default:
-			break;
  800019e:	e037      	b.n	8000210 <getKeyInput+0xc4>
-			if(KeyReg3 != KeyReg2){
  80001a0:	4b24      	ldr	r3, [pc, #144]	; (8000234 <getKeyInput+0xe8>)
  80001a2:	681a      	ldr	r2, [r3, #0]
  80001a4:	4b20      	ldr	r3, [pc, #128]	; (8000228 <getKeyInput+0xdc>)
  80001a6:	681b      	ldr	r3, [r3, #0]
  80001a8:	429a      	cmp	r2, r3
  80001aa:	d007      	beq.n	80001bc <getKeyInput+0x70>
-				KeyReg3 = KeyReg2;
  80001ac:	4b1e      	ldr	r3, [pc, #120]	; (8000228 <getKeyInput+0xdc>)
  80001ae:	681b      	ldr	r3, [r3, #0]
  80001b0:	4a20      	ldr	r2, [pc, #128]	; (8000234 <getKeyInput+0xe8>)
  80001b2:	6013      	str	r3, [r2, #0]
-				pressType = PRESS_RELEASE;
  80001b4:	4b1e      	ldr	r3, [pc, #120]	; (8000230 <getKeyInput+0xe4>)
  80001b6:	2201      	movs	r2, #1
  80001b8:	601a      	str	r2, [r3, #0]
  80001ba:	e002      	b.n	80001c2 <getKeyInput+0x76>
-				pressType = PRESS_OVER;
  80001bc:	4b1c      	ldr	r3, [pc, #112]	; (8000230 <getKeyInput+0xe4>)
  80001be:	2202      	movs	r2, #2
  80001c0:	601a      	str	r2, [r3, #0]
-			if(KeyReg3 == NORMAL_STATE){
  80001c2:	4b1c      	ldr	r3, [pc, #112]	; (8000234 <getKeyInput+0xe8>)
  80001c4:	681b      	ldr	r3, [r3, #0]
  80001c6:	2b01      	cmp	r3, #1
  80001c8:	d124      	bne.n	8000214 <getKeyInput+0xc8>
-				pressType = NO_PRESS;
  80001ca:	4b19      	ldr	r3, [pc, #100]	; (8000230 <getKeyInput+0xe4>)
  80001cc:	2200      	movs	r2, #0
  80001ce:	601a      	str	r2, [r3, #0]
-			break;
  80001d0:	e020      	b.n	8000214 <getKeyInput+0xc8>
-				TimeOutForKeyPress = 200;
  80001d2:	4b19      	ldr	r3, [pc, #100]	; (8000238 <getKeyInput+0xec>)
  80001d4:	22c8      	movs	r2, #200	; 0xc8
  80001d6:	601a      	str	r2, [r3, #0]
-				button1_flag = 1;
  80001d8:	4b18      	ldr	r3, [pc, #96]	; (800023c <getKeyInput+0xf0>)
  80001da:	2201      	movs	r2, #1
  80001dc:	601a      	str	r2, [r3, #0]
-				pressType = NO_PRESS;
  80001de:	4b14      	ldr	r3, [pc, #80]	; (8000230 <getKeyInput+0xe4>)
  80001e0:	2200      	movs	r2, #0
  80001e2:	601a      	str	r2, [r3, #0]
-			break;
  80001e4:	e019      	b.n	800021a <getKeyInput+0xce>
-			TimeOutForKeyPress--;
  80001e6:	4b14      	ldr	r3, [pc, #80]	; (8000238 <getKeyInput+0xec>)
  80001e8:	681b      	ldr	r3, [r3, #0]
  80001ea:	3b01      	subs	r3, #1
  80001ec:	4a12      	ldr	r2, [pc, #72]	; (8000238 <getKeyInput+0xec>)
  80001ee:	6013      	str	r3, [r2, #0]
-			if(TimeOutForKeyPress == 0){
  80001f0:	4b11      	ldr	r3, [pc, #68]	; (8000238 <getKeyInput+0xec>)
  80001f2:	681b      	ldr	r3, [r3, #0]
  80001f4:	2b00      	cmp	r3, #0
  80001f6:	d10f      	bne.n	8000218 <getKeyInput+0xcc>
-				TimeOutForKeyPress = 200;
  80001f8:	4b0f      	ldr	r3, [pc, #60]	; (8000238 <getKeyInput+0xec>)
  80001fa:	22c8      	movs	r2, #200	; 0xc8
  80001fc:	601a      	str	r2, [r3, #0]
-				button1_flag = 1;
  80001fe:	4b0f      	ldr	r3, [pc, #60]	; (800023c <getKeyInput+0xf0>)
  8000200:	2201      	movs	r2, #1
  8000202:	601a      	str	r2, [r3, #0]
-				pressType = NO_PRESS;
  8000204:	4b0a      	ldr	r3, [pc, #40]	; (8000230 <getKeyInput+0xe4>)
  8000206:	2200      	movs	r2, #0
  8000208:	601a      	str	r2, [r3, #0]
-			break;
  800020a:	e005      	b.n	8000218 <getKeyInput+0xcc>
-		}
-	}
  800020c:	bf00      	nop
  800020e:	e004      	b.n	800021a <getKeyInput+0xce>
-			break;
  8000210:	bf00      	nop
  8000212:	e002      	b.n	800021a <getKeyInput+0xce>
-			break;
  8000214:	bf00      	nop
  8000216:	e000      	b.n	800021a <getKeyInput+0xce>
-			break;
  8000218:	bf00      	nop
-}
  800021a:	bf00      	nop
  800021c:	bd80      	pop	{r7, pc}
  800021e:	bf00      	nop
