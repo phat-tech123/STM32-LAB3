@@ -7,7 +7,7 @@
 
 #include "button.h"
 
-#define ZERO 				0
+#define ZERO 			0
 #define PRESS_RELEASE_1 	1
 #define PRESS_RELEASE_2 	2
 #define PRESS_RELEASE_3 	3
