@@ -14,7 +14,8 @@
 #define NORMAL_STATE GPIO_PIN_SET
 #define PRESSED_STATE GPIO_PIN_RESET
 
-void getKeyInput();
+void getKeyInput1();
+void getKeyInput2();
 
 extern int button_flag[3];
 

@@ -1,1 +1,2 @@
-button.c:22:6:getKeyInput	8	static
+button.c:22:6:getKeyInput1	8	static
+button.c:100:6:getKeyInput2	8	static
