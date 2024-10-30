@@ -20,5 +20,7 @@
 
 extern int status;
 
+extern int led_buffer[4];
+
 
 #endif /* INC_GLOBAL_H_ */

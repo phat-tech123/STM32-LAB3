@@ -57,44 +57,6 @@ void getKeyInput1() {
     default:
         break;
     }
-
-//    // BUTTON 2
-//    switch(pressType[1]) {
-//    case ZERO:
-//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
-//            return;
-//        }
-//        pressType[1] = PRESS_RELEASE_1;
-//        break;
-//    case PRESS_RELEASE_1:
-//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
-//            pressType[1] = ZERO;
-//            return;
-//        }
-//        pressType[1] = PRESS_RELEASE_2;
-//        break;
-//    case PRESS_RELEASE_2:
-//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
-//            pressType[1] = ZERO;
-//            return;
-//        }
-//        button_flag[1] = 1;
-//        pressType[1] = PRESS_OVER;
-//        TimeOutForKeyPress[1] = 200;
-//        break;
-//    case PRESS_OVER:
-//        --TimeOutForKeyPress[1];
-//        if (TimeOutForKeyPress[1] == 0) {
-//            TimeOutForKeyPress[1] = 200;
-//            button_flag[1] = 1;
-//        }
-//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
-//            pressType[1] = ZERO;
-//        }
-//        break;
-//    default:
-//        break;
-//    }
 }
 
 void getKeyInput2(){
@@ -136,3 +98,139 @@ void getKeyInput2(){
         break;
     }
 }
+
+void getKeyInput3(){
+    // BUTTON 3
+    switch(pressType[2]) {
+    case ZERO:
+        if (HAL_GPIO_ReadPin(button3_GPIO_Port, button3_Pin) == NORMAL_STATE) {
+            return;
+        }
+        pressType[2] = PRESS_RELEASE_1;
+        break;
+    case PRESS_RELEASE_1:
+        if (HAL_GPIO_ReadPin(button3_GPIO_Port, button3_Pin) == NORMAL_STATE) {
+            pressType[2] = ZERO;
+            return;
+        }
+        pressType[2] = PRESS_RELEASE_2;
+        break;
+    case PRESS_RELEASE_2:
+        if (HAL_GPIO_ReadPin(button3_GPIO_Port, button3_Pin) == NORMAL_STATE) {
+            pressType[2] = ZERO;
+            return;
+        }
+        button_flag[2] = 1;
+        pressType[2] = PRESS_OVER;
+        TimeOutForKeyPress[2] = 200;
+        break;
+    case PRESS_OVER:
+        --TimeOutForKeyPress[2];
+        if (TimeOutForKeyPress[2] == 0) {
+            TimeOutForKeyPress[2] = 200;
+            button_flag[2] = 1;
+        }
+        if (HAL_GPIO_ReadPin(button3_GPIO_Port, button3_Pin) == NORMAL_STATE) {
+            pressType[2] = ZERO;
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+
+void getKeyInput(){
+	for(int i=0; i<3; i++){
+		if(i==1){
+			getKeyInput1();
+		}
+		else if(i==2){
+			getKeyInput2();
+		}
+		else{
+			getKeyInput3();
+		}
+	}
+}
+
+//void getKeyInput() {
+//    // BUTTON 1
+//    switch(pressType[0]) {
+//    case ZERO:
+//        if (HAL_GPIO_ReadPin(button1_GPIO_Port, button1_Pin) == NORMAL_STATE) {
+//            return;
+//        }
+//        pressType[0] = PRESS_RELEASE_1;
+//        break;
+//    case PRESS_RELEASE_1:
+//        if (HAL_GPIO_ReadPin(button1_GPIO_Port, button1_Pin) == NORMAL_STATE) {
+//            pressType[0] = ZERO;
+//            return;
+//        }
+//        pressType[0] = PRESS_RELEASE_2;
+//        break;
+//    case PRESS_RELEASE_2:
+//        if (HAL_GPIO_ReadPin(button1_GPIO_Port, button1_Pin) == NORMAL_STATE) {
+//            pressType[0] = ZERO;
+//            return;
+//        }
+//        button_flag[0] = 1;
+//        pressType[0] = PRESS_OVER;
+//        TimeOutForKeyPress[0] = 200;
+//        break;
+//    case PRESS_OVER:
+//        --TimeOutForKeyPress[0];
+//        if (TimeOutForKeyPress[0] == 0) {
+//            TimeOutForKeyPress[0] = 200;
+//            button_flag[0] = 1;
+//        }
+//        if (HAL_GPIO_ReadPin(button1_GPIO_Port, button1_Pin) == NORMAL_STATE) {
+//            pressType[0] = ZERO;
+//        }
+//        break;
+//    default:
+//        break;
+//    }
+//
+//    // BUTTON 2
+//    switch(pressType[1]) {
+//    case ZERO:
+//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
+//            return;
+//        }
+//        pressType[1] = PRESS_RELEASE_1;
+//        break;
+//    case PRESS_RELEASE_1:
+//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
+//            pressType[1] = ZERO;
+//            return;
+//        }
+//        pressType[1] = PRESS_RELEASE_2;
+//        break;
+//    case PRESS_RELEASE_2:
+//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
+//            pressType[1] = ZERO;
+//            return;
+//        }
+//        button_flag[1] = 1;
+//        pressType[1] = PRESS_OVER;
+//        TimeOutForKeyPress[1] = 200;
+//        break;
+//    case PRESS_OVER:
+//        --TimeOutForKeyPress[1];
+//        if (TimeOutForKeyPress[1] == 0) {
+//            TimeOutForKeyPress[1] = 200;
+//            button_flag[1] = 1;
+//        }
+//        if (HAL_GPIO_ReadPin(button2_GPIO_Port, button2_Pin) == NORMAL_STATE) {
+//            pressType[1] = ZERO;
+//        }
+//        break;
+//    default:
+//        break;
+//    }
+//}
+
+
+
