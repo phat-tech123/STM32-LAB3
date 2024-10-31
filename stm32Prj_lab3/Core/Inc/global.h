@@ -25,6 +25,7 @@
 #define RED_SETTING 	5
 #define YELLOW_SETTING 	6
 #define GREEN_SETTING 	7
+#define INIT_SETTING 	8
 
 
 
