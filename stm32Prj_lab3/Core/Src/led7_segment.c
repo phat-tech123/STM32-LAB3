@@ -6,7 +6,7 @@
  */
 
 #include "led7_segment.h"
-
+int led_buffer[4] = {1,2,3,4};
 void display7SEG(int num){
 	 //1
 	 switch(num){

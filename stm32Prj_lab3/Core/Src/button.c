@@ -19,6 +19,31 @@ int button_flag[3] = {0};			//Flag for button signal
 
 int pressType[3] = {ZERO, ZERO, ZERO};
 
+void getKeyInput1();
+void getKeyInput2();
+void getKeyInput3();
+
+
+
+void getKeyInput(){
+	for(int i=0; i<3; i++){
+		switch(i){
+		case 0:
+			getKeyInput1();
+			break;
+		case 1:
+			getKeyInput2();
+			break;
+		case 2:
+			getKeyInput3();
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+
 void getKeyInput1() {
     // BUTTON 1
     switch(pressType[0]) {
@@ -139,20 +164,6 @@ void getKeyInput3(){
     }
 }
 
-
-void getKeyInput(){
-	for(int i=0; i<3; i++){
-		if(i==1){
-			getKeyInput1();
-		}
-		else if(i==2){
-			getKeyInput2();
-		}
-		else{
-			getKeyInput3();
-		}
-	}
-}
 
 //void getKeyInput() {
 //    // BUTTON 1

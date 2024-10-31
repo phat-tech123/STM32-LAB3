@@ -6,3 +6,11 @@
  */
 
 
+#include "fsm_manual.h"
+
+
+void fsm_manual_run(){
+	switch(status){
+
+	}
+}

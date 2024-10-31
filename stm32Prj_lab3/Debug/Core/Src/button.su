@@ -1,4 +1,4 @@
-button.c:22:6:getKeyInput1	8	static
-button.c:62:6:getKeyInput2	8	static
-button.c:102:6:getKeyInput3	8	static
-button.c:143:6:getKeyInput	16	static
+button.c:28:6:getKeyInput	16	static
+button.c:47:6:getKeyInput1	8	static
+button.c:87:6:getKeyInput2	8	static
+button.c:127:6:getKeyInput3	8	static

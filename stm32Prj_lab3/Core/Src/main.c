@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "global.h"
 #include "software_timer.h"
 #include "button.h"
 /* USER CODE END Includes */
@@ -96,20 +97,52 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer(0, 1000);
+  int index_led = 0;
+  setTimer(2, 250);
+  int status = INIT;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
+
 	  /* BEGIN TESTING	*/
 	  if(timer_flag[0] == 1){
 		  setTimer(0,1000);
 		  HAL_GPIO_TogglePin(test_timer_GPIO_Port, test_timer_Pin);
 	  }
-	  if(button_flag[0] == 1){
+	  if(button_flag[0] == 1 || button_flag[1] == 1 || button_flag[2] == 1){
 		  button_flag[0] = 0;
 		  HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
+		  switch(status){
+			case INIT:
+				status = RED_SETTING;
+				break;
+			case RED1_GREEN:
+				status = RED_SETTING;
+				break;
+			case RED1_YELLOW:
+				status = RED_SETTING;
+				break;
+			case RED2_GREEN:
+				status = RED_SETTING;
+				break;
+			case RED2_YELLOW:
+				status = RED_SETTING;
+				break;
+			case RED_SETTING:
+				status = YELLOW_SETTING;
+				break;
+			case YELLOW_SETTING:
+				status = GREEN_SETTING;
+				break;
+			case GREEN_SETTING:
+				status = RED_SETTING;
+				break;
+			default:
+				break;
+		  }
 	  }
 	  if(button_flag[1] == 1){
 		  button_flag[1] = 0;
@@ -122,7 +155,11 @@ int main(void)
 	  /* END TESTING	*/
 
 	  fsm_automatic_run();
-
+	  fsm_setting_run();
+	  if(timer_flag[2] >= 1){
+		  update7SEG((index_led++)%4);
+		  setTimer(2,250);
+	  }
 
   }
   /* USER CODE END 3 */

@@ -40,7 +40,7 @@ void turn_yellow_2(){
 }
 
 int new = 0;
-int status = INIT;
+int status;
 void fsm_automatic_run(){
 	switch(status){
 	case INIT:
