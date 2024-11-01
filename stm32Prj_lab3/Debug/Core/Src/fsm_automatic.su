@@ -1,7 +1,1 @@
-fsm_automatic.c:11:6:turn_red	8	static
-fsm_automatic.c:16:6:turn_green	8	static
-fsm_automatic.c:21:6:turn_yellow	8	static
-fsm_automatic.c:26:6:turn_red_2	8	static
-fsm_automatic.c:31:6:turn_green_2	8	static
-fsm_automatic.c:36:6:turn_yellow_2	8	static
-fsm_automatic.c:43:6:fsm_automatic_run	8	static
+fsm_automatic.c:13:6:fsm_automatic_run	8	static

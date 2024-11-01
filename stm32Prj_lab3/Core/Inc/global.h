@@ -12,6 +12,7 @@
 #include "software_timer.h"
 #include "button.h"
 #include "led7_segment.h"
+#include "traffic_light.h"
 #include "fsm_automatic.h"
 #include "fsm_setting.h"
 #include "fsm_manual.h"
@@ -31,7 +32,6 @@
 
 extern int status;
 
-extern int led_buffer[4];
-
+extern int idx;
 
 #endif /* INC_GLOBAL_H_ */

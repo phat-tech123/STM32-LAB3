@@ -1,0 +1,4 @@
+../Core/Src/button.c:28:6:getKeyInput	6
+../Core/Src/button.c:47:6:getKeyInput1	10
+../Core/Src/button.c:87:6:getKeyInput2	10
+../Core/Src/button.c:127:6:getKeyInput3	10

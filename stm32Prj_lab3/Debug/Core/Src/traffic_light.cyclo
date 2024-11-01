@@ -1,0 +1,7 @@
+../Core/Src/traffic_light.c:18:6:traffic_light_run	14
+../Core/Src/traffic_light.c:80:6:turn_red	1
+../Core/Src/traffic_light.c:85:6:turn_green	1
+../Core/Src/traffic_light.c:90:6:turn_yellow	1
+../Core/Src/traffic_light.c:95:6:turn_red_2	1
+../Core/Src/traffic_light.c:100:6:turn_green_2	1
+../Core/Src/traffic_light.c:105:6:turn_yellow_2	1

@@ -94,10 +94,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 1000);
-  int index_led = 0;
-  setTimer(2, 250);
-  int status = INIT;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -105,59 +101,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 
-	  /* BEGIN TESTING	*/
-	  if(timer_flag[0] == 1){
-		  setTimer(0,1000);
-		  HAL_GPIO_TogglePin(test_timer_GPIO_Port, test_timer_Pin);
-	  }
-	  if(button_flag[0] == 1){
-		  button_flag[0] = 0;
-		  HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
-		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port, LED_GREEN_2_Pin, GPIO_PIN_RESET);
-		  switch(status){
-			  case INIT:
-				status = RED_SETTING;
-				break;
-			  case RED1_GREEN:
-			  case RED1_YELLOW:
-			  case RED2_GREEN:
-			  case RED2_YELLOW:
-				status = RED_SETTING;  // All these states lead to RED_SETTING
-				break;
-			  case RED_SETTING:
-				status = YELLOW_SETTING;
-				break;
-			  case YELLOW_SETTING:
-				status = GREEN_SETTING;
-				break;
-			  case GREEN_SETTING:
-				status = RED_SETTING;
-				break;
-			  default:
-				break;
-		  }
-	  }
-	  if(button_flag[1] == 1){
-		  button_flag[1] = 0;
-		  HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
-	  }
-	  if(button_flag[2] == 1){
-		  button_flag[2] = 0;
-		  HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
-	  }
-	  /* END TESTING	*/
-
-	  fsm_setting_run();
 	  fsm_automatic_run();
-	  if(timer_flag[2] >= 1){
-		  update7SEG((index_led++)%4);
-		  setTimer(2,250);
-	  }
 
   }
   /* USER CODE END 3 */

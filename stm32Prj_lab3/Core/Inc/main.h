@@ -102,6 +102,7 @@ void Error_Handler(void);
 #define SEG_6_GPIO_Port GPIOB
 #define SEG_7_Pin GPIO_PIN_6
 #define SEG_7_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -111,5 +112,3 @@ void Error_Handler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

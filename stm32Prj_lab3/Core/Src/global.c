@@ -7,4 +7,3 @@
 
 #include "global.h"
 
-int status = INIT_SETTING;
