@@ -23,7 +23,7 @@
 #define RED2_GREEN		3
 #define RED2_YELLOW		4
 
-#define RED_SETTING 	5
+#define MAN_RED		 	5
 #define YELLOW_SETTING 	6
 #define GREEN_SETTING 	7
 #define INIT_SETTING 	8

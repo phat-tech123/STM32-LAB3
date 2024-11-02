@@ -10,7 +10,13 @@
 
 #include "global.h"
 
-void automatic_traffic_light_run();
+
+void turn_red();
+void turn_green();
+void turn_yellow();
+void turn_red_2();
+void turn_green_2();
+void turn_yellow_2();
 
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */
