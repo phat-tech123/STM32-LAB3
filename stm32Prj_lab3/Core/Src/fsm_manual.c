@@ -10,11 +10,13 @@
 
 
 void fsm_manual_run(){
-	if((green_time + yellow_time) != red_time){
-		green_time = red_time - yellow_time;
-	}
 	switch(status){
 	case RED1_GREEN_MAN:
+		//when something wrong
+		if((green_time + yellow_time) != red_time){
+			green_time = red_time - yellow_time;
+		}
+
 		//When just turn status
 		if(New == 1){
 			turn_red();

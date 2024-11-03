@@ -1170,39 +1170,41 @@ void fsm_automatic_run(){
 void fsm_manual_run(){
  8000828:	b580      	push	{r7, lr}
  800082a:	af00      	add	r7, sp, #0
-	if((green_time + yellow_time) != red_time){
- 800082c:	4b80      	ldr	r3, [pc, #512]	; (8000a30 <fsm_manual_run+0x208>)
- 800082e:	681a      	ldr	r2, [r3, #0]
- 8000830:	4b80      	ldr	r3, [pc, #512]	; (8000a34 <fsm_manual_run+0x20c>)
- 8000832:	681b      	ldr	r3, [r3, #0]
- 8000834:	441a      	add	r2, r3
- 8000836:	4b80      	ldr	r3, [pc, #512]	; (8000a38 <fsm_manual_run+0x210>)
- 8000838:	681b      	ldr	r3, [r3, #0]
- 800083a:	429a      	cmp	r2, r3
- 800083c:	d006      	beq.n	800084c <fsm_manual_run+0x24>
-		green_time = red_time - yellow_time;
- 800083e:	4b7e      	ldr	r3, [pc, #504]	; (8000a38 <fsm_manual_run+0x210>)
- 8000840:	681a      	ldr	r2, [r3, #0]
- 8000842:	4b7c      	ldr	r3, [pc, #496]	; (8000a34 <fsm_manual_run+0x20c>)
- 8000844:	681b      	ldr	r3, [r3, #0]
- 8000846:	1ad3      	subs	r3, r2, r3
- 8000848:	4a79      	ldr	r2, [pc, #484]	; (8000a30 <fsm_manual_run+0x208>)
- 800084a:	6013      	str	r3, [r2, #0]
-	}
 	switch(status){
- 800084c:	4b7b      	ldr	r3, [pc, #492]	; (8000a3c <fsm_manual_run+0x214>)
- 800084e:	681b      	ldr	r3, [r3, #0]
- 8000850:	3b08      	subs	r3, #8
- 8000852:	2b03      	cmp	r3, #3
- 8000854:	f200 81d7 	bhi.w	8000c06 <fsm_manual_run+0x3de>
- 8000858:	a201      	add	r2, pc, #4	; (adr r2, 8000860 <fsm_manual_run+0x38>)
- 800085a:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 800085e:	bf00      	nop
- 8000860:	08000871 	.word	0x08000871
- 8000864:	08000955 	.word	0x08000955
- 8000868:	08000a55 	.word	0x08000a55
- 800086c:	08000b39 	.word	0x08000b39
+ 800082c:	4b80      	ldr	r3, [pc, #512]	; (8000a30 <fsm_manual_run+0x208>)
+ 800082e:	681b      	ldr	r3, [r3, #0]
+ 8000830:	3b08      	subs	r3, #8
+ 8000832:	2b03      	cmp	r3, #3
+ 8000834:	f200 81e7 	bhi.w	8000c06 <fsm_manual_run+0x3de>
+ 8000838:	a201      	add	r2, pc, #4	; (adr r2, 8000840 <fsm_manual_run+0x18>)
+ 800083a:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 800083e:	bf00      	nop
+ 8000840:	08000851 	.word	0x08000851
+ 8000844:	08000955 	.word	0x08000955
+ 8000848:	08000a55 	.word	0x08000a55
+ 800084c:	08000b39 	.word	0x08000b39
 	case RED1_GREEN_MAN:
+		//when something wrong
+		if((green_time + yellow_time) != red_time){
+ 8000850:	4b78      	ldr	r3, [pc, #480]	; (8000a34 <fsm_manual_run+0x20c>)
+ 8000852:	681a      	ldr	r2, [r3, #0]
+ 8000854:	4b78      	ldr	r3, [pc, #480]	; (8000a38 <fsm_manual_run+0x210>)
+ 8000856:	681b      	ldr	r3, [r3, #0]
+ 8000858:	441a      	add	r2, r3
+ 800085a:	4b78      	ldr	r3, [pc, #480]	; (8000a3c <fsm_manual_run+0x214>)
+ 800085c:	681b      	ldr	r3, [r3, #0]
+ 800085e:	429a      	cmp	r2, r3
+ 8000860:	d006      	beq.n	8000870 <fsm_manual_run+0x48>
+			green_time = red_time - yellow_time;
+ 8000862:	4b76      	ldr	r3, [pc, #472]	; (8000a3c <fsm_manual_run+0x214>)
+ 8000864:	681a      	ldr	r2, [r3, #0]
+ 8000866:	4b74      	ldr	r3, [pc, #464]	; (8000a38 <fsm_manual_run+0x210>)
+ 8000868:	681b      	ldr	r3, [r3, #0]
+ 800086a:	1ad3      	subs	r3, r2, r3
+ 800086c:	4a71      	ldr	r2, [pc, #452]	; (8000a34 <fsm_manual_run+0x20c>)
+ 800086e:	6013      	str	r3, [r2, #0]
+		}
+
 		//When just turn status
 		if(New == 1){
  8000870:	4b73      	ldr	r3, [pc, #460]	; (8000a40 <fsm_manual_run+0x218>)
@@ -1214,13 +1216,13 @@ void fsm_manual_run(){
 			turn_green_2();
  800087c:	f001 f860 	bl	8001940 <turn_green_2>
 			led_buffer[1] = red_time - 1;
- 8000880:	4b6d      	ldr	r3, [pc, #436]	; (8000a38 <fsm_manual_run+0x210>)
+ 8000880:	4b6e      	ldr	r3, [pc, #440]	; (8000a3c <fsm_manual_run+0x214>)
  8000882:	681b      	ldr	r3, [r3, #0]
  8000884:	3b01      	subs	r3, #1
  8000886:	4a6f      	ldr	r2, [pc, #444]	; (8000a44 <fsm_manual_run+0x21c>)
  8000888:	6053      	str	r3, [r2, #4]
 			led_buffer[3] = green_time -1;
- 800088a:	4b69      	ldr	r3, [pc, #420]	; (8000a30 <fsm_manual_run+0x208>)
+ 800088a:	4b6a      	ldr	r3, [pc, #424]	; (8000a34 <fsm_manual_run+0x20c>)
  800088c:	681b      	ldr	r3, [r3, #0]
  800088e:	3b01      	subs	r3, #1
  8000890:	4a6c      	ldr	r2, [pc, #432]	; (8000a44 <fsm_manual_run+0x21c>)
@@ -1242,7 +1244,7 @@ void fsm_manual_run(){
  80008a4:	2201      	movs	r2, #1
  80008a6:	60da      	str	r2, [r3, #12]
 			status = RED1_YELLOW;
- 80008a8:	4b64      	ldr	r3, [pc, #400]	; (8000a3c <fsm_manual_run+0x214>)
+ 80008a8:	4b61      	ldr	r3, [pc, #388]	; (8000a30 <fsm_manual_run+0x208>)
  80008aa:	2202      	movs	r2, #2
  80008ac:	601a      	str	r2, [r3, #0]
 			New = 1;
@@ -1250,7 +1252,7 @@ void fsm_manual_run(){
  80008b0:	2201      	movs	r2, #1
  80008b2:	601a      	str	r2, [r3, #0]
 			setTimer(1, yellow_time*1000);
- 80008b4:	4b5f      	ldr	r3, [pc, #380]	; (8000a34 <fsm_manual_run+0x20c>)
+ 80008b4:	4b60      	ldr	r3, [pc, #384]	; (8000a38 <fsm_manual_run+0x210>)
  80008b6:	681b      	ldr	r3, [r3, #0]
  80008b8:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  80008bc:	fb02 f303 	mul.w	r3, r2, r3
@@ -1338,7 +1340,7 @@ void fsm_manual_run(){
  8000946:	2004      	movs	r0, #4
  8000948:	f000 fec8 	bl	80016dc <setTimer>
 			status = RED_SETTING;
- 800094c:	4b3b      	ldr	r3, [pc, #236]	; (8000a3c <fsm_manual_run+0x214>)
+ 800094c:	4b38      	ldr	r3, [pc, #224]	; (8000a30 <fsm_manual_run+0x208>)
  800094e:	2205      	movs	r2, #5
  8000950:	601a      	str	r2, [r3, #0]
 		}
@@ -1354,7 +1356,7 @@ void fsm_manual_run(){
 			turn_yellow_2();
  800095c:	f001 f808 	bl	8001970 <turn_yellow_2>
 			led_buffer[3] = yellow_time - 1;
- 8000960:	4b34      	ldr	r3, [pc, #208]	; (8000a34 <fsm_manual_run+0x20c>)
+ 8000960:	4b35      	ldr	r3, [pc, #212]	; (8000a38 <fsm_manual_run+0x210>)
  8000962:	681b      	ldr	r3, [r3, #0]
  8000964:	3b01      	subs	r3, #1
  8000966:	4a37      	ldr	r2, [pc, #220]	; (8000a44 <fsm_manual_run+0x21c>)
@@ -1380,7 +1382,7 @@ void fsm_manual_run(){
  8000980:	2204      	movs	r2, #4
  8000982:	60da      	str	r2, [r3, #12]
 			status = RED2_GREEN;
- 8000984:	4b2d      	ldr	r3, [pc, #180]	; (8000a3c <fsm_manual_run+0x214>)
+ 8000984:	4b2a      	ldr	r3, [pc, #168]	; (8000a30 <fsm_manual_run+0x208>)
  8000986:	2203      	movs	r2, #3
  8000988:	601a      	str	r2, [r3, #0]
 			New = 1;
@@ -1388,7 +1390,7 @@ void fsm_manual_run(){
  800098c:	2201      	movs	r2, #1
  800098e:	601a      	str	r2, [r3, #0]
 			setTimer(1, green_time*1000);
- 8000990:	4b27      	ldr	r3, [pc, #156]	; (8000a30 <fsm_manual_run+0x208>)
+ 8000990:	4b28      	ldr	r3, [pc, #160]	; (8000a34 <fsm_manual_run+0x20c>)
  8000992:	681b      	ldr	r3, [r3, #0]
  8000994:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  8000998:	fb02 f303 	mul.w	r3, r2, r3
@@ -1476,16 +1478,16 @@ void fsm_manual_run(){
  8000a22:	2004      	movs	r0, #4
  8000a24:	f000 fe5a 	bl	80016dc <setTimer>
 			status = RED_SETTING;
- 8000a28:	4b04      	ldr	r3, [pc, #16]	; (8000a3c <fsm_manual_run+0x214>)
+ 8000a28:	4b01      	ldr	r3, [pc, #4]	; (8000a30 <fsm_manual_run+0x208>)
  8000a2a:	2205      	movs	r2, #5
  8000a2c:	601a      	str	r2, [r3, #0]
 		}
 		break;
  8000a2e:	e0ee      	b.n	8000c0e <fsm_manual_run+0x3e6>
- 8000a30:	20000014 	.word	0x20000014
- 8000a34:	20000010 	.word	0x20000010
- 8000a38:	2000000c 	.word	0x2000000c
- 8000a3c:	20000064 	.word	0x20000064
+ 8000a30:	20000064 	.word	0x20000064
+ 8000a34:	20000014 	.word	0x20000014
+ 8000a38:	20000010 	.word	0x20000010
+ 8000a3c:	2000000c 	.word	0x2000000c
  8000a40:	2000006c 	.word	0x2000006c
  8000a44:	20000070 	.word	0x20000070
  8000a48:	200000a8 	.word	0x200000a8
@@ -1841,7 +1843,7 @@ void fsm_setting_run(){
  8000c84:	d003      	beq.n	8000c8e <fsm_setting_run+0x4e>
  8000c86:	2b06      	cmp	r3, #6
  8000c88:	f000 8089 	beq.w	8000d9e <fsm_setting_run+0x15e>
-			//status = RED1_GREEN_MAN;
+			setTimer(3, 250);
 			status = RED1_GREEN_MAN;
 		}
 		break;
