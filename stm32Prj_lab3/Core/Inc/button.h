@@ -15,6 +15,4 @@
 
 void getKeyInput();
 
-extern int button_flag[3];
-
 #endif /* INC_BUTTON_H_ */

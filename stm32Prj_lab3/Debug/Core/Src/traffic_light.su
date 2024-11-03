@@ -4,3 +4,7 @@ traffic_light.c:20:6:turn_yellow	8	static
 traffic_light.c:25:6:turn_red_2	8	static
 traffic_light.c:30:6:turn_green_2	8	static
 traffic_light.c:35:6:turn_yellow_2	8	static
+traffic_light.c:41:6:clear_light	8	static
+traffic_light.c:50:6:toggleRed	8	static
+traffic_light.c:54:6:toggleYellow	8	static
+traffic_light.c:58:6:toggleGreen	8	static

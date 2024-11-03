@@ -1,3 +1,4 @@
-led7_segment.c:12:6:display7SEG	16	static
-led7_segment.c:110:6:enableLed	16	static
-led7_segment.c:141:6:update7SEG	16	static
+led7_segment.c:13:6:display7SEG	16	static
+led7_segment.c:111:6:enableLed	16	static
+led7_segment.c:142:6:clearLed	8	static
+led7_segment.c:149:6:update7SEG	16	static
