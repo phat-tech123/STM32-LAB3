@@ -11,11 +11,21 @@ int status = INIT;
 void fsm_automatic_run(){
 	switch(status){
 	case INIT:
-		status = RED1_GREEN;
-		setTimer(1, 3000);
+		//when something wrong
+		if((green_time + yellow_time) != red_time){
+			green_time = red_time - yellow_time;
+		}
+		if(green_time < yellow_time){
+			green_time += yellow_time;
+			yellow_time = green_time - yellow_time;
+			green_time -= yellow_time;
+		}
+
+		setTimer(1, green_time*1000);
 		setTimer(2, 1000);
 		setTimer(3, 250);
 		New = 1;
+		status = RED1_GREEN;
 		break;
 	case RED1_GREEN:
 		//When just turn status
@@ -32,7 +42,7 @@ void fsm_automatic_run(){
 			led_buffer[3] = 1;
 			status = RED1_YELLOW;
 			New = 1;
-			setTimer(1, 2000);
+			setTimer(1, yellow_time*1000);
 		}
 
 		//7-SEGMENT LEDS
@@ -58,6 +68,15 @@ void fsm_automatic_run(){
 			setTimer(3, 250);
 			setTimer(4, 500);
 			status = RED_SETTING;
+		}
+
+		//MANUAL TRAFFIC LIGHTS
+		if(button_flag[1] == 1){
+			New = 1;
+			button_flag[1] = 0;
+			clearLed();
+			clear_light();
+			status = RED_MAN;
 		}
 		break;
 	case RED1_YELLOW:
@@ -74,7 +93,7 @@ void fsm_automatic_run(){
 			led_buffer[3] = 4;
 			status = RED2_GREEN;
 			New = 1;
-			setTimer(1, 3000);
+			setTimer(1, green_time*1000);
 		}
 
 		//7-SEGMENT LEDS
@@ -100,6 +119,16 @@ void fsm_automatic_run(){
 			setTimer(3, 250);
 			setTimer(4, 500);
 			status = RED_SETTING;
+		}
+
+		//MANUAL TRAFFIC LIGHTS
+		if(button_flag[1] == 1){
+			New = 1;
+			button_flag[1] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = RED_MAN;
 		}
 		break;
 	case RED2_GREEN:
@@ -117,7 +146,7 @@ void fsm_automatic_run(){
 			led_buffer[1] = 1;
 			status = RED2_YELLOW;
 			New = 1;
-			setTimer(1, 2000);
+			setTimer(1, yellow_time*1000);
 		}
 
 		//7-SEGMENT LEDS
@@ -143,6 +172,16 @@ void fsm_automatic_run(){
 			setTimer(3, 250);
 			setTimer(4, 500);
 			status = RED_SETTING;
+		}
+
+		//MANUAL TRAFFIC LIGHTS
+		if(button_flag[1] == 1){
+			New = 1;
+			button_flag[1] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = RED_MAN;
 		}
 		break;
 	case RED2_YELLOW:
@@ -157,7 +196,7 @@ void fsm_automatic_run(){
 		if(timer_flag[1] == 1){
 			status = RED1_GREEN;
 			New = 1;
-			setTimer(1, 3000);
+			setTimer(1, green_time*1000);
 		}
 
 		//7-SEGMENT LEDS
@@ -183,6 +222,16 @@ void fsm_automatic_run(){
 			setTimer(3, 250);
 			setTimer(4, 500);
 			status = RED_SETTING;
+		}
+
+		//MANUAL TRAFFIC LIGHTS
+		if(button_flag[1] == 1){
+			New = 1;
+			button_flag[1] = 0;
+			clearLed();
+			clear_light();
+			setTimer(3, 250);
+			status = RED_MAN;
 		}
 		break;
 	default:

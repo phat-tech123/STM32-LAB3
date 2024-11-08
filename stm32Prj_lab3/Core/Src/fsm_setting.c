@@ -171,11 +171,7 @@ void fsm_setting_run(){
 			button_flag[0] = 0;
 			clearLed();
 			clear_light();
-			New = 1;
-			setTimer(1, green_time*1000);
-			setTimer(2, 1000);
-			setTimer(3, 250);
-			status = RED1_GREEN_MAN;
+			status = INIT;
 		}
 		break;
 	default:
