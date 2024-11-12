@@ -94,11 +94,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer(5, 1000);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if(timer_flag[5] == 1){
+		  setTimer(5,1000);
+		  HAL_GPIO_TogglePin(test_timer_GPIO_Port, test_timer_Pin);
+	  }
 	  fsm_automatic_run();
 	  fsm_setting_run();
 	  fsm_manual_run();

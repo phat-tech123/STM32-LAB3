@@ -29,12 +29,14 @@ void fsm_manual_run(){
 		turn_red();
 		turn_red_2();
 		if(button_flag[1] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			New = 1;
 			button_flag[1] = 0;
 			clear_light();
 			status = YELLOW_MAN;
 		}
 		if(button_flag[2] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[2] = 0;
 			status = INIT;
 		}
@@ -57,12 +59,14 @@ void fsm_manual_run(){
 		turn_yellow();
 		turn_yellow_2();
 		if(button_flag[1] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			New = 1;
 			button_flag[1] = 0;
 			clear_light();
 			status = GREEN_MAN;
 		}
 		if(button_flag[2] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[2] = 0;
 			status = INIT;
 		}
@@ -85,12 +89,14 @@ void fsm_manual_run(){
 		turn_green();
 		turn_green_2();
 		if(button_flag[1] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			New = 1;
 			button_flag[1] = 0;
 			clear_light();
 			status = RED_MAN;
 		}
 		if(button_flag[2] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[2] = 0;
 			status = INIT;
 		}

@@ -62,6 +62,7 @@ void fsm_setting_run(){
 
 		//CHANGE STATUS
 		if(button_flag[0] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[0] = 0;
 			clearLed();
 			clear_light();
@@ -102,6 +103,7 @@ void fsm_setting_run(){
 
 		//SETTING TIME DURATION
 		if(button_flag[2] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[2] = 0;
 			yellow_time = led_buffer[0]*10 + led_buffer[1];
 		}
@@ -115,6 +117,7 @@ void fsm_setting_run(){
 
 		//CHANGE STATUS
 		if(button_flag[0] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[0] = 0;
 			clearLed();
 			clear_light();
@@ -155,6 +158,7 @@ void fsm_setting_run(){
 
 		//SETTING TIME DURATION
 		if(button_flag[2] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[2] = 0;
 			green_time = led_buffer[0]*10 + led_buffer[1];
 		}
@@ -168,6 +172,7 @@ void fsm_setting_run(){
 
 		//CHANGE STATUS
 		if(button_flag[0] == 1){
+			HAL_GPIO_TogglePin(test_button_GPIO_Port, test_button_Pin);
 			button_flag[0] = 0;
 			clearLed();
 			clear_light();
