@@ -20,8 +20,10 @@ void fsm_setting_run(){
 	case RED_SETTING:
 		//When just turn status
 		if(New == 1){
+			led_buffer[2] = 0;
 			led_buffer[3] = mode2;
-			led_buffer[1] = red_time;
+			led_buffer[0] = red_time / 10;
+			led_buffer[1] = red_time % 10;
 			New = 0;
 		}
 
@@ -75,8 +77,10 @@ void fsm_setting_run(){
 	case YELLOW_SETTING:
 		//When just turn status
 		if(New == 1){
+			led_buffer[2] = 0;
 			led_buffer[3] = mode3;
-			led_buffer[1] = yellow_time;
+			led_buffer[0] = yellow_time / 10;
+			led_buffer[1] = yellow_time % 10;
 			New = 0;
 		}
 
@@ -130,8 +134,10 @@ void fsm_setting_run(){
 	case GREEN_SETTING:
 		//When just turn status
 		if(New == 1){
+			led_buffer[2] = 0;
 			led_buffer[3] = mode4;
-			led_buffer[1] = green_time;
+			led_buffer[0] = green_time / 10;
+			led_buffer[1] = green_time % 10;
 			New = 0;
 		}
 

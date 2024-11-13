@@ -14,6 +14,7 @@ void fsm_manual_run(){
 	case RED_MAN:
 		if(New == 1){
 			New = 0;
+			led_buffer[0] = led_buffer[2] = 0;
 			led_buffer[1] = led_buffer[3] = 5;
 		}
 
@@ -44,6 +45,7 @@ void fsm_manual_run(){
 	case YELLOW_MAN:
 		if(New == 1){
 			New = 0;
+			led_buffer[0] = led_buffer[2] = 0;
 			led_buffer[1] = led_buffer[3] = 6;
 		}
 
@@ -74,6 +76,7 @@ void fsm_manual_run(){
 	case GREEN_MAN:
 		if(New == 1){
 			New = 0;
+			led_buffer[0] = led_buffer[2] = 0;
 			led_buffer[1] = led_buffer[3] = 7;
 		}
 
