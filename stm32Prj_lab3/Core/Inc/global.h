@@ -27,9 +27,12 @@
 #define YELLOW_SETTING 	6
 #define GREEN_SETTING 	7
 
-#define RED_MAN	8
-#define YELLOW_MAN	9
-#define	GREEN_MAN	10
+
+#define FROAD_MAN 		8
+#define SROAD_MAN		9
+//#define RED_MAN	8
+//#define YELLOW_MAN	9
+//#define	GREEN_MAN	10
 
 extern int status;
 extern int button_flag[3];

@@ -89,7 +89,15 @@ void fsm_automatic_run(){
 			button_flag[1] = 0;
 			clearLed();
 			clear_light();
-			status = RED_MAN;
+			status = FROAD_MAN;
+		}
+		if(button_flag[2] == 1){
+			New = 1;
+			button_flag[2] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = SROAD_MAN;
 		}
 		break;
 	case RED1_YELLOW:
@@ -148,9 +156,18 @@ void fsm_automatic_run(){
 			clearLed();
 			clear_light();
 			New = 1;
-			status = RED_MAN;
+			status = FROAD_MAN;
+		}
+		if(button_flag[2] == 1){
+			New = 1;
+			button_flag[2] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = SROAD_MAN;
 		}
 		break;
+
 	case RED2_GREEN:
 		//When just turn status
 		if(New == 1){
@@ -210,7 +227,15 @@ void fsm_automatic_run(){
 			clearLed();
 			clear_light();
 			New = 1;
-			status = RED_MAN;
+			status = FROAD_MAN;
+		}
+		if(button_flag[2] == 1){
+			New = 1;
+			button_flag[2] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = SROAD_MAN;
 		}
 		break;
 	case RED2_YELLOW:
@@ -269,7 +294,15 @@ void fsm_automatic_run(){
 			clearLed();
 			clear_light();
 			setTimer(3, 250);
-			status = RED_MAN;
+			status = FROAD_MAN;
+		}
+		if(button_flag[2] == 1){
+			New = 1;
+			button_flag[2] = 0;
+			clearLed();
+			clear_light();
+			New = 1;
+			status = SROAD_MAN;
 		}
 		break;
 	default:
